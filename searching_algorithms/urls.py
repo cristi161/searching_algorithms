@@ -19,5 +19,7 @@ from searching_algorithms import views
 
 urlpatterns = [
     path('', views.index_page, name='searching-algorithms'),
+    path('dfs/', views.index_page),
+    path('bfs/', views.bfs_page),
     path('admin/', admin.site.urls),
 ]

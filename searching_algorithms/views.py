@@ -13,3 +13,9 @@ def index_page(request):
 
     context = {'nodes': JSONData}
     return render(request, 'index.html', context)
+
+def bfs_page(request):
+
+    context = {}
+
+    return render(request, 'bfs.html', context)

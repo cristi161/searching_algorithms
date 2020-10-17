@@ -34,8 +34,8 @@
         <div class="container">
             <nav class="skew-menu">
                   <ul>
-                    <li><a href="">DFS</a></li>
-                    <li><a href="bfs">BFS</a></li>
+                    <li><a href="/">DFS</a></li>
+                    <li><a href="#">BFS</a></li>
                     <li><a href="#">Algo 3</a></li>
                     <li><a href="#">Algo 4</a></li>
                     <li><a href="#">Algo 5</a></li>
@@ -53,26 +53,29 @@
                                     <li>
                                         <span class="tf-nc" id="n2">2</span>
                                         <ul>
-                                            <li><span class="tf-nc" id="n4">4</span></li>
-                                            <li>
-                                                <span class="tf-nc" id="n5">5</span>
-                                                <ul>
-                                                    <li><span class="tf-nc" id="n6">6</span></li>
-                                                    <li><span class="tf-nc" id="n7">7</span></li>
-                                                </ul>
-                                            </li>
+                                            <li><span class="tf-nc" id="n5">5</span></li>
+                                            <li><span class="tf-nc" id="n6">6</span></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <span class="tf-nc" id="n3">3</span>
                                         <ul>
-                                            <li><span class="tf-nc" id="n8">8</span></li>
                                             <li>
-                                                <span class="tf-nc" id="n9">9</span>
+                                                <span class="tf-nc" id="n7">7</span>
                                                 <ul>
+                                                    <li><span class="tf-nc" id="n9">9</span></li>
                                                     <li><span class="tf-nc" id="n10">10</span></li>
+                                                    <li><span class="tf-nc" id="n11">11</span></li>
+                                                    <li><span class="tf-nc" id="n12">12</span></li>
                                                 </ul>
                                             </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span class="tf-nc" id="n4">4</span>
+                                        <ul>
+                                            <li><span class="tf-nc" id="n8">8</span></li>
+                                            <li><span class="tf-nc" id="n9">9</span></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -83,7 +86,7 @@
                 <div class="col-md-2 trigger-search-div">
                     <nav class="skew-menu">
                         <ul>
-                            <li><a href="#" id="dfsButton">GO for DFS</a></li>
+                            <li><a href="#" id="dfsButton">GO for BFS</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -98,25 +101,13 @@
             return new Promise(res => setTimeout(res, ms));
         }
 
-        async function dfs() {
-            let data = JSON.parse("{{nodes}}");
-            console.log(data);
-            for (let n in data) {
-                //console.log("n" + String(data[n]) + "\n");
-                try {
-                    document.getElementById("n" + String(data[n])).style.backgroundColor = "tomato";
-                } catch (e) {
-                    console.log(e)
-                }
-
-                await timer(500);
-            }
+        async function bfs() {
 
         }
 
         $(document).ready(function () {
-            $("#dfsButton").click(function () {
-                dfs();
+            $("#bfsButton").click(function () {
+                bfs();
             })
         })
     </script>
