@@ -8,11 +8,20 @@
         <link href="https://unpkg.com/treeflex/dist/css/treeflex.css" rel="stylesheet">
         <style>
             .example .tf-nc {
-                background-color:darkcyan;
+                background-color: darkcyan;
                 border: none;
                 border-radius: 25px;
                 color: white;
+                transition: 0.3s all;
             }
+
+            .example .tf-nc:hover {
+                transition: 0.3s all;
+                border-color: tomato;
+                border-width: 2px;
+                border-style: solid;
+            }
+
             .tf-tree .tf-nc:before,
             .tf-tree .tf-nc:after,
             .tf-tree li li:before {
@@ -34,35 +43,52 @@
                     <li><a href="#">Algo 7</a></li>
                   </ul>
             </nav>
-            <div class="tf-tree example tf-dashed-children">
-                <ul>
-                    <li>
-                        <span class="tf-nc">1</span>
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="tf-tree example tf-dashed-children">
                         <ul>
                             <li>
-                                <span class="tf-nc">2</span>
+                                <span class="tf-nc">1</span>
                                 <ul>
-                                    <li><span class="tf-nc">4</span></li>
                                     <li>
-                                        <span class="tf-nc">5</span>
+                                        <span class="tf-nc">2</span>
                                         <ul>
-                                            <li><span class="tf-nc">9</span></li>
-                                            <li><span class="tf-nc">10</span></li>
+                                            <li><span class="tf-nc">4</span></li>
+                                            <li>
+                                                <span class="tf-nc">5</span>
+                                                <ul>
+                                                    <li><span class="tf-nc">9</span></li>
+                                                    <li><span class="tf-nc">10</span></li>
+                                                </ul>
+                                            </li>
+                                            <li><span class="tf-nc">6</span></li>
                                         </ul>
                                     </li>
-                                    <li><span class="tf-nc">6</span></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <span class="tf-nc">3</span>
-                                <ul>
-                                    <li><span class="tf-nc">7</span></li>
-                                    <li><span class="tf-nc">8</span></li>
+                                    <li>
+                                        <span class="tf-nc">3</span>
+                                        <ul>
+                                            <li><span class="tf-nc">7</span></li>
+                                            <li>
+                                                <span class="tf-nc">8</span>
+                                                <ul>
+                                                    <li><span class="tf-nc">11</span></li>
+                                                    <li><span class="tf-nc">12</span></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
-                    </li>
-                </ul>
+                     </div>
+                </div>
+                <div class="col-md-2 trigger-search-div">
+                    <nav class="skew-menu">
+                        <ul>
+                            <li><a href="#">Search for 10</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
 

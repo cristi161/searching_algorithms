@@ -42,6 +42,15 @@ body {
     color: #ff6347;
 }
 
+.trigger-search-div .skew-menu ul li {
+    background: #eee !important;
+    color: #ff6347 !important;
+}
+
+.trigger-search-div .skew-menu ul li:hover {
+    box-shadow: 4px 2px 12px rgba(0, 0, 0, 0.3);
+}
+
 .skew-menu ul li a {
     display: block;
     padding: 1em 2em;
