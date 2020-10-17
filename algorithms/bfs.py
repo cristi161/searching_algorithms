@@ -2,8 +2,9 @@ from algorithms.Node.BFSNode import BFSNode
 
 
 class Graph:
-    def __init__(self, root: BFSNode):
+    def __init__(self, root=BFSNode(1)):
         self.root = root
+        self.generate_nodes()
 
     def generate_nodes(self):
         self.root.add_node(BFSNode(2))
@@ -27,22 +28,22 @@ class Graph:
         node7.add_node(BFSNode(12))
         node7.add_node(BFSNode(13))
 
-    def BFS(self, nodes: list):
+    def BFS(self, nodes_: list):
         queue = list()
         queue.append(self.root)
 
         while queue:
             s = queue.pop(0)
-            nodes.append(s.value)
+            nodes_.append(s.value)
 
             for node in s.nodes:
                 queue.append(node)
 
 
-graph = Graph(root=BFSNode(1))
-nodes = []
+if __name__ == "__main__":
+    graph = Graph(root=BFSNode(1))
+    nodes = []
 
-graph.generate_nodes()
-graph.BFS(nodes)
+    graph.BFS(nodes)
 
-print(nodes)
+    print(nodes)

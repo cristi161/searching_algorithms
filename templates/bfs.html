@@ -35,9 +35,9 @@
             <nav class="skew-menu">
                   <ul>
                     <li><a href="/">DFS</a></li>
-                    <li><a href="#">BFS</a></li>
-                    <li><a href="#">Algo 3</a></li>
-                    <li><a href="#">Algo 4</a></li>
+                    <li><a href="/bfs">BFS</a></li>
+                    <li><a href="/dijkstra">Dijkstra</a></li>
+                    <li><a href="/min-max">Min-Max</a></li>
                     <li><a href="#">Algo 5</a></li>
                     <li><a href="#">Algo 6</a></li>
                     <li><a href="#">Algo 7</a></li>
@@ -63,10 +63,10 @@
                                             <li>
                                                 <span class="tf-nc" id="n7">7</span>
                                                 <ul>
-                                                    <li><span class="tf-nc" id="n9">9</span></li>
                                                     <li><span class="tf-nc" id="n10">10</span></li>
                                                     <li><span class="tf-nc" id="n11">11</span></li>
                                                     <li><span class="tf-nc" id="n12">12</span></li>
+                                                    <li><span class="tf-nc" id="n13">13</span></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -86,7 +86,7 @@
                 <div class="col-md-2 trigger-search-div">
                     <nav class="skew-menu">
                         <ul>
-                            <li><a href="#" id="dfsButton">GO for BFS</a></li>
+                            <li><a href="#" id="bfsButton">GO for BFS</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -102,11 +102,33 @@
         }
 
         async function bfs() {
+            let data = JSON.parse("{{nodes}}");
+            console.log(data);
+            for (let n in data) {
+                try {
+                    document.getElementById("n" + String(data[n])).style.backgroundColor = "tomato";
+                } catch (e) {
+                    console.log(e)
+                }
 
+                await timer(500);
+            }
+        }
+
+        function resetGraph() {
+            let data = JSON.parse("{{nodes}}");
+            for (let n in data) {
+                try {
+                    document.getElementById("n" + String(data[n])).style.backgroundColor = "darkcyan";
+                } catch (e) {
+                    console.log(e)
+                }
+            }
         }
 
         $(document).ready(function () {
             $("#bfsButton").click(function () {
+                resetGraph()
                 bfs();
             })
         })
