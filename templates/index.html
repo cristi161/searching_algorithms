@@ -48,31 +48,29 @@
                     <div class="tf-tree example tf-dashed-children">
                         <ul>
                             <li>
-                                <span class="tf-nc">1</span>
+                                <span class="tf-nc" id="n1">1</span>
                                 <ul>
                                     <li>
-                                        <span class="tf-nc">2</span>
+                                        <span class="tf-nc" id="n2">2</span>
                                         <ul>
-                                            <li><span class="tf-nc">4</span></li>
+                                            <li><span class="tf-nc" id="n4">4</span></li>
                                             <li>
-                                                <span class="tf-nc">5</span>
+                                                <span class="tf-nc" id="n5">5</span>
                                                 <ul>
-                                                    <li><span class="tf-nc">9</span></li>
-                                                    <li><span class="tf-nc">10</span></li>
+                                                    <li><span class="tf-nc" id="n6">6</span></li>
+                                                    <li><span class="tf-nc" id="n7">7</span></li>
                                                 </ul>
                                             </li>
-                                            <li><span class="tf-nc">6</span></li>
                                         </ul>
                                     </li>
                                     <li>
-                                        <span class="tf-nc">3</span>
+                                        <span class="tf-nc" id="n3">3</span>
                                         <ul>
-                                            <li><span class="tf-nc">7</span></li>
+                                            <li><span class="tf-nc" id="n8">8</span></li>
                                             <li>
-                                                <span class="tf-nc">8</span>
+                                                <span class="tf-nc" id="n9">9</span>
                                                 <ul>
-                                                    <li><span class="tf-nc">11</span></li>
-                                                    <li><span class="tf-nc">12</span></li>
+                                                    <li><span class="tf-nc" id="n10">10</span></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -85,7 +83,7 @@
                 <div class="col-md-2 trigger-search-div">
                     <nav class="skew-menu">
                         <ul>
-                            <li><a href="#">Search for 10</a></li>
+                            <li><a href="#" id="dfsButton">Search for 10</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -94,5 +92,34 @@
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <script>
+        function timer(ms) {
+            return new Promise(res => setTimeout(res, ms));
+        }
+
+        async function dfs() {
+            let data = JSON.parse("{{nodes}}");
+            console.log(data);
+            for (let n in data) {
+                //console.log("n" + String(data[n]) + "\n");
+                try {
+                    document.getElementById("n" + String(data[n])).style.backgroundColor = "tomato";
+                } catch (e) {
+                    console.log(e)
+                }
+
+                await timer(500);
+            }
+
+        }
+
+        $(document).ready(function () {
+            $("#dfsButton").click(function () {
+                dfs();
+            })
+        })
+    </script>
+
     </body>
 </html>

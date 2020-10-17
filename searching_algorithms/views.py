@@ -8,9 +8,17 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from algorithms import dfs
+from algorithms.dfs import Tree
+import json
+
 
 def index_page(request):
-    print("Index")
+    tree = Tree()
 
-    context = {}
+    nodes = tree.get_nodes()
+    JSONData = json.dumps(nodes)
+    print(JSONData)
+
+    context = {'nodes': JSONData}
     return render(request, 'index.html', context)
