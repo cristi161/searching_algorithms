@@ -44,3 +44,8 @@ def dijkstra_page(request):
 def min_max_page(request):
     context = {}
     return render(request, 'min_max.html', context)
+
+
+def ucs_page(request):
+    context = {}
+    return render(request,'ucs.html',context)
