@@ -33,7 +33,12 @@ def dijkstra_page(request):
     d = Dijkstra({'a': {'b': 10, 'c': 3}, 'b': {'c': 1, 'd': 2}, 'c': {'b': 4, 'd': 8, 'e': 2}, 'd': {'e': 7}, 'e': {'d': 9}})
     d.dijkstra('a', 'd')
 
-    context = {}
+    path = d.get_full_path()
+    JSONData = json.dumps(path)
+
+    print(JSONData)
+
+    context = {'nodes': JSONData}
     return render(request, 'dijkstra.html', context)
 
 def min_max_page(request):
