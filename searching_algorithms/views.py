@@ -34,8 +34,8 @@ def dijkstra_page(request):
     d.dijkstra('a', 'd')
 
     context = {}
-    return render(request, 'dijkstra.html', context);
+    return render(request, 'dijkstra.html', context)
 
 def min_max_page(request):
     context = {}
-    return render(request, 'min_max.html', context);
+    return render(request, 'min_max.html', context)
