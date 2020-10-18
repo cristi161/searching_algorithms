@@ -25,5 +25,6 @@ urlpatterns = [
     path('min-max/', views.min_max_page),
     path('ucs/',views.ucs_page),
     path('puzzle/', views.puzzle_page),
+    path('dls/', views.dls_page),
     path('admin/', admin.site.urls),
 ]

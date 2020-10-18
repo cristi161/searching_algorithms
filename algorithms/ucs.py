@@ -13,10 +13,6 @@ visited = []
 sortedWeight = []
 sortedPoint = []
 
-route = []
-visited = []
-
-
 def ucs(start, destination):
     route.append(start)
     while len(route) > 0:
@@ -32,15 +28,15 @@ def ucs(start, destination):
             route.extend(set(sortedPoint) - set(visited))
         if visited.__contains__(destination):
             break
-    return visited
+    return route
 
-suru = str('A')
-ses = str('F')
-v = ucs(suru, ses)
 
-print("The Shortest Path from " + suru + " To " + ses + ":  ")
+if __name__ == "__main__":
 
-j = 0
-for i in v:
-    print(v[j])
-    j += 1
+    suru = str('A')
+    ses = str('F')
+    v = ucs(suru, ses)
+
+    print("The Shortest Path from " + suru + " To " + ses + ":  ")
+
+    print(v)

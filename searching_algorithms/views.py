@@ -1,3 +1,5 @@
+import math
+
 from django.contrib.sites import requests
 from django.shortcuts import render
 
@@ -6,6 +8,8 @@ from algorithms.dfs import Tree
 from algorithms.dijsktra import Dijkstra
 import json
 
+from algorithms.dls import dls, get_graph
+from algorithms.minmax import minimax
 from algorithms.puzzle import Puzzle
 
 
@@ -44,7 +48,13 @@ def dijkstra_page(request):
     return render(request, 'dijkstra.html', context)
 
 def min_max_page(request):
-    context = {}
+    scores = [3, 5, 2, 9, 12, 5, 23, 23]
+    treeDepth = math.log(len(scores), 2)
+    result = minimax(0, 0, True, scores, treeDepth)
+
+    JSONDataScores = json.dumps(scores)
+
+    context = {'scores': JSONDataScores, 'depth': treeDepth, 'result': result}
     return render(request, 'min_max.html', context)
 
 def ucs_page(request):
@@ -61,4 +71,14 @@ def puzzle_page(request):
 
     context = {'path': JSONDataPath, 'graph': JSONDataGraph}
     return render(request, 'puzzle.html', context)
+
+def dls_page(request):
+    path = dls("Arad", "Bucharest")
+
+    graph = get_graph()
+    JSONGraph = json.dumps(graph)
+
+    context = {'graph': str(JSONGraph), 'path': str(json.dumps(path))}
+    return render(request, 'dls.html', context)
+
 
