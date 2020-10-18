@@ -47,6 +47,10 @@ def min_max_page(request):
     context = {}
     return render(request, 'min_max.html', context)
 
+def ucs_page(request):
+    context = {}
+    return render(request,'ucs.html',context)
+
 def puzzle_page(request):
     p = Puzzle((0, 0), (3, 6))
     path = []
@@ -57,3 +61,4 @@ def puzzle_page(request):
 
     context = {'path': JSONDataPath, 'graph': JSONDataGraph}
     return render(request, 'puzzle.html', context)
+

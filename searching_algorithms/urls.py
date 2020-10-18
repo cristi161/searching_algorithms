@@ -23,6 +23,7 @@ urlpatterns = [
     path('bfs/', views.bfs_page),
     path('dijkstra/', views.dijkstra_page),
     path('min-max/', views.min_max_page),
+    path('ucs/',views.ucs_page),
     path('puzzle/', views.puzzle_page),
     path('admin/', admin.site.urls),
 ]
