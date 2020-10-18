@@ -44,15 +44,16 @@
                   </ul>
             </nav>
             <div class="row">
-                <div class="col-md-10">
+                <div id="puzzle" class="col-md-10">
 
                 </div>
                 <div class="col-md-2 trigger-search-div">
                     <nav class="skew-menu">
                         <ul>
-                            <li><a href="#" id="dfsButton">GO for Min-Max</a></li>
+                            <li><a href="#" id="startBtn">Start</a></li>
                         </ul>
                     </nav>
+                    <h6><i>Down, Right, Up, Left</i></h6>
                 </div>
             </div>
         </div>
@@ -65,16 +66,49 @@
             return new Promise(res => setTimeout(res, ms));
         }
 
-        async function dfs() {
-            let data = JSON.parse("{{nodes}}");
-            console.log(data);
+        async function puzzleStart() {
+            let path = JSON.parse("{{ path }}");
+            for (let i = 0; i < path.length; i++) {
+                let i0 = path[i][0];
+                let j0 = path[i][1];
 
+                let z = document.getElementById("cls" + String(j0) + "." + String(i0));
+                z.style.backgroundColor = "red";
+
+                await timer(100);
+
+            }
         }
 
         $(document).ready(function () {
-            $("#dfsButton").click(function () {
+            let graph = JSON.parse("{{graph}}");
+            console.log(graph);
+            for (let i = 0; i < 10; i++) {
+                let doc = document.getElementById("puzzle");
+                let newRow = document.createElement('div');
+                newRow.style.display = "inline-block";
+                doc.append(newRow);
+                for (let j = 0; j < 10; j++) {
+                    let color = "darkcyan";
+                    if (graph[j][i] === 1) {
+                        color = "tomato";
+                    }
+                    let newCell = document.createElement('div');
+                        newCell.style.width = "40px";
+                        newCell.style.height = "40px";
+                        newCell.style.backgroundColor = color;
+                        newCell.setAttribute("id", "cls" + String(i) + "." + String(j));
+                        newRow.append(newCell);
+                }
+            }
 
+            document.getElementById("cls0.0").style.backgroundColor = "blue";
+            document.getElementById("cls6.3").style.backgroundColor = "blue";
+
+            $("#startBtn").click(function () {
+                puzzleStart();
             })
+
         })
     </script>
 

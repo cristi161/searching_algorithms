@@ -6,6 +6,8 @@ from algorithms.dfs import Tree
 from algorithms.dijsktra import Dijkstra
 import json
 
+from algorithms.puzzle import Puzzle
+
 
 def index_page(request):
     tree = Tree()
@@ -45,7 +47,18 @@ def min_max_page(request):
     context = {}
     return render(request, 'min_max.html', context)
 
-
 def ucs_page(request):
     context = {}
     return render(request,'ucs.html',context)
+
+def puzzle_page(request):
+    p = Puzzle((0, 0), (3, 6))
+    path = []
+
+    JSONDataGraph = json.dumps(p.puzzle)
+    p.go(path)
+    JSONDataPath = json.dumps(path)
+
+    context = {'path': JSONDataPath, 'graph': JSONDataGraph}
+    return render(request, 'puzzle.html', context)
+
