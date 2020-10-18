@@ -44,13 +44,13 @@
                   </ul>
             </nav>
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-10" id="dijkstra">
 
                 </div>
                 <div class="col-md-2 trigger-search-div">
                     <nav class="skew-menu">
                         <ul>
-                            <li><a href="#" id="dfsButton">GO for Dijkstra</a></li>
+                            <li><a href="#" id="dijkstraButton">GO for Dijkstra</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -65,15 +65,37 @@
             return new Promise(res => setTimeout(res, ms));
         }
 
-        async function dfs() {
-            let data = JSON.parse("{{nodes}}");
+        async function dijkstra() {
+            let data = JSON.parse("{{matrix}}");
             console.log(data);
+
+            for (let i=0; i < data.length; i++) {
+                let doc = document.getElementById("dijkstra");
+                let newRow = document.createElement('div');
+                newRow.style.display = "inline-block";
+                doc.append(newRow);
+                for (let j=0; j<data.length; j++) {
+                    if (data[i][j] && data[j][i]) {
+                        let newCell = document.createElement('div');
+                        newCell.style.width = "24px";
+                        newCell.style.height = "24px";
+                        newCell.style.backgroundColor = "tomato";
+                        newRow.append(newCell);
+                    } else {
+                        let newCell = document.createElement('div');
+                        newCell.style.width = "24px";
+                        newCell.style.height = "24px";
+                        newCell.style.backgroundColor = "darkcyan";
+                        newRow.append(newCell);
+                    }
+                }
+            }
 
         }
 
         $(document).ready(function () {
-            $("#dfsButton").click(function () {
-
+            $("#dijkstraButton").click(function () {
+                dijkstra();
             })
         })
     </script>
