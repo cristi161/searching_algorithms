@@ -11,6 +11,7 @@ import json
 from algorithms.dls import dls, get_graph
 from algorithms.minmax import minimax
 from algorithms.puzzle import Puzzle
+from algorithms.ucs import ucs
 
 
 def index_page(request):
@@ -58,8 +59,11 @@ def min_max_page(request):
     return render(request, 'min_max.html', context)
 
 def ucs_page(request):
-    context = {}
-    return render(request,'ucs.html',context)
+
+    JSONDataPath = json.dumps(ucs("a", "f"))
+
+    context = {'path': JSONDataPath}
+    return render(request, 'ucs.html', context)
 
 def puzzle_page(request):
     p = Puzzle((0, 0), (3, 6))

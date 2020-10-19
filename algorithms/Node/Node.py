@@ -6,15 +6,15 @@ class Node:
         self.data = data
 
     def print_tree(self):
+        print(self.data)
         if self.left:
             self.left.print_tree()
         if self.right:
             self.right.print_tree()
-        print(self.data)
 
     def dfs_nodes(self, data: list):
+        data.append(self.data)
         if self.left:
             self.left.dfs_nodes(data)
         if self.right:
             self.right.dfs_nodes(data)
-        data.append(self.data)

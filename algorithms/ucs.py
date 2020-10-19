@@ -1,11 +1,11 @@
 graph = {
-    'A': ['B', 'C', [5, 2]],
-    'B': ['A', 'D', 'E', [5, 5, 1]],
-    'C': ['A', 'F', 'G', [2, 5, 4]],
-    'D': ['B', [5]],
-    'E': ['B', [1]],
-    'F': ['C', [5]],
-    'G': ['G', [4]],
+    'a': ['b', 'c', [5, 2]],
+    'b': ['a', 'd', 'g', [5, 5, 1]],
+    'c': ['a', 'f', 'g', [2, 5, 4]],
+    'd': ['b', [5]],
+    'e': ['b', [1]],
+    'f': ['c', [5]],
+    'g': ['g', [4]],
 }
 
 route = []
@@ -33,10 +33,10 @@ def ucs(start, destination):
 
 if __name__ == "__main__":
 
-    suru = str('A')
-    ses = str('F')
-    v = ucs(suru, ses)
+    src = str('a')
+    dst = str('f')
+    v = ucs(src, dst)
 
-    print("The Shortest Path from " + suru + " To " + ses + ":  ")
+    print("The Shortest Path from " + src + " To " + dst + ":  ")
 
     print(v)
